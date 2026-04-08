@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it as below."
+type: software
+title: "RapidMeta Cardiology - Watchman FLX vs Amulet"
+license: MIT
+abstract: >-
+  Browser-based living meta-analysis workspace for left atrial appendage
+  occlusion evidence synthesis focused on Amplatzer Amulet versus Watchman FLX.
+keywords:
+  - living meta-analysis
+  - cardiology
+  - left atrial appendage occlusion
+  - Watchman
+  - Amulet
+authors:
+  - family-names: Ahmad
+    given-names: Mahmood
+preferred-citation:
+  type: software
+  title: "RapidMeta Cardiology - Watchman FLX vs Amulet"
+  authors:
+    - family-names: Ahmad
+      given-names: Mahmood
+  year: 2026
