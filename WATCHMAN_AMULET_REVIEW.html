@@ -1524,7 +1524,7 @@
             return safe;
         };
 
-        const AUTO_INCLUDE_TRIAL_IDS = new Set(['NCT02879448', 'NCT03392428']);
+        const AUTO_INCLUDE_TRIAL_IDS = new Set(['NCT02879448', 'NCT03399851']);
         const isPhaseTwoLike = (phaseLabel = '') => {
             const p = String(phaseLabel ?? '').toLowerCase().trim();
             if (!p) return false;
@@ -1967,7 +1967,7 @@
 
             // ISSUE 10 FIX: Corrected ARTS-DN Metadata (Phase IIb)
             /* Known acronyms for trials whose CT.gov search may not return the acronym field */
-            nctAcronyms: { 'NCT02879448': 'AMULET IDE', 'NCT03392428': 'SWISS-APERO' },
+            nctAcronyms: { 'NCT02879448': 'AMULET IDE', 'NCT03399851': 'SWISS-APERO' },
             _allowedSources: new Set(['registry', 'pubmed', 'openalex', 'reference', 'manual']),
             _allowedStatuses: new Set(['search', 'include', 'exclude']),
             sanitizeText(value, maxLen = 600) {
@@ -2302,10 +2302,12 @@
                     tE: 26, tN: 934, cE: 26, cN: 944, group: 'Indirect (vs W2.5)',
                     allOutcomes: [
                         { shortLabel: 'Stroke/SE', title: 'Ischemic Stroke or Systemic Embolism at 18 months', tE: 26, cE: 26, type: 'PRIMARY' },
-                        { shortLabel: 'Safety composite', title: 'Primary safety composite (complications + death + BARC 3+ bleeding) at 12m', tE: 99, cE: 94, type: 'SECONDARY' }
+                        { shortLabel: 'Safety composite', title: 'Primary safety composite (complications + death + BARC 3+ bleeding) at 12m', tE: 99, cE: 94, type: 'SECONDARY' },
+                        { shortLabel: 'DRT', title: 'Device-related thrombus at 12 months', tE: 31, cE: 42, type: 'SAFETY' },
+                        { shortLabel: 'Peridevice Leak', title: 'Peridevice leak >=5mm at 12 months', tE: 93, cE: 208, type: 'SECONDARY' }
                     ],
                     rob: ['low', 'low', 'some', 'some', 'some'],
-                    snippet: 'Lakkireddy Circulation 2021;144:e64-e74. Amulet vs Watchman 2.5 (NOT FLX). Ischemic stroke/SE ~2.8% both arms at 18m. Open-label design.',
+                    snippet: 'Source: ClinicalTrials.gov NCT02879448 (Amulet IDE). Enrollment: 1878. Status: COMPLETED. Results posted. Amulet vs Watchman 2.5 (NOT FLX). Lakkireddy Circulation 2021;144:e64-e74.',
                     evidence: [
                         { label: 'Enrollment & Design', source: 'Lakkireddy D et al. Circulation 2021;144:e64-e74, Fig 1 (CONSORT)', text: 'A total of 1,878 patients with non-valvular AF and contraindication to long-term OAC were randomized 1:1 to Amplatzer Amulet (n=934) or Watchman 2.5 (n=944). Open-label, non-inferiority design with blinded endpoint adjudication.', highlights: ['934', '944', '1,878', 'non-inferiority', 'blinded endpoint'] },
                         { label: 'Ischemic Stroke/SE at 18 Months', source: 'Lakkireddy D et al. Circulation 2021;144:e64-e74, Table 2', text: 'Ischemic stroke or systemic embolism occurred in 26 of 934 patients (2.8%) in the Amulet group and 26 of 944 patients (2.8%) in the Watchman 2.5 group at 18-month follow-up (risk difference 0.0%, 95% CrI -1.2 to 1.3).', highlights: ['26', '934', '2.8%', '944'] },
@@ -2314,20 +2316,22 @@
                         { label: 'Indirectness Concern', source: 'Protocol: NCT02879448 (ClinicalTrials.gov)', text: 'CRITICAL: Comparator is Watchman 2.5 (legacy device), NOT Watchman FLX. GRADE assessment must downgrade for indirectness when pooling with FLX-era trials. Open-label design introduces performance bias risk (D3/D4 some concerns).', highlights: ['Watchman 2.5', 'NOT Watchman FLX', 'indirectness', 'Open-label'] }
                     ]
                 },
-                'NCT03392428': {
+                'NCT03399851': {
                     name: 'SWISS-APERO 3yr', phase: 'RCT', year: 2025,
                     tE: 20, tN: 111, cE: 34, cN: 110, group: 'Direct (vs FLX/W2.5 mix)',
                     allOutcomes: [
                         { shortLabel: 'Composite CV', title: 'CV death/stroke/TIA/SE at 3 years (primary composite)', tE: 20, cE: 34, type: 'PRIMARY' },
-                        { shortLabel: 'Major bleeding', title: 'Major bleeding (BARC 3-5) at 3 years', tE: 18, cE: 20, type: 'SECONDARY' }
+                        { shortLabel: 'Major bleeding', title: 'Major bleeding (BARC 3-5) at 3 years', tE: 18, cE: 20, type: 'SECONDARY' },
+                        { shortLabel: 'CV Death', title: 'Cardiovascular death at 3 years', tE: 13, cE: 26, type: 'SECONDARY' },
+                        { shortLabel: 'DRT', title: 'Device-related thrombus (definite + probable) at 3 years', tE: 4, cE: 11, type: 'SAFETY' }
                     ],
                     rob: ['low', 'low', 'low', 'some', 'low'],
-                    snippet: 'Branca JACC 2025. 3yr follow-up (n=221). Watchman arm: 77% FLX + 23% W2.5. Composite CV death/stroke/TIA/SE: 18.2% vs 31.0%.',
+                    snippet: 'Source: NCT03399851 (ClinicalTrials.gov). Bern University Hospital RCT comparing Amulet vs Watchman/FLX. Data from Branca JACC 2025. 3yr (n=221). CV death/stroke/TIA/SE: 18.2% vs 31.0%.',
                     evidence: [
                         { label: 'Enrollment & Follow-up', source: 'Branca P et al. JACC 2025, Table 1', text: 'A total of 221 patients were randomized: 111 to Amulet and 110 to Watchman (77% FLX, 23% W2.5 legacy). Extended 3-year follow-up of the original SWISS-APERO RCT. Blinded outcome adjudication by independent committee.', highlights: ['221', '111', '110', '77% FLX', '23% W2.5', '3-year'] },
                         { label: 'Primary Composite at 3 Years', source: 'Branca P et al. JACC 2025, Table 2', text: 'The primary composite endpoint (cardiovascular death, stroke, TIA, or systemic embolism) occurred in 20 of 111 patients (18.2%) with Amulet and 34 of 110 patients (31.0%) with Watchman at 3-year follow-up. CV death: 12.1% Amulet vs 23.7% Watchman (HR 0.50). Major bleeding (BARC 3-5): 16.5% vs 18.0% (HR 1.03, NS).', highlights: ['20', '111', '18.2%', '34', '110', '31.0%', '12.1%', '23.7%'] },
                         { label: '45-Day Procedural Safety', source: 'Galea R et al. Circulation 2022;145:724-738, Table 3', text: 'Major procedure-related complications: Amulet 9.0% (10/111) vs Watchman 2.7% (3/110). Procedural bleeding: 7.2% (8/111) vs 1.8% (2/110). CV death/stroke/SE at 45d: 2.7% (3/111) vs 4.5% (5/110). DRT: definite 0.9% (1) vs 3.0% (3); definite+probable 3.7% (4) vs 9.9% (11).', highlights: ['9.0%', '2.7%', '7.2%', '1.8%', '3.7%', '9.9%'] },
-                        { label: 'RoB Assessment', source: 'Study protocol: NCT03392428 (ClinicalTrials.gov)', text: 'Multicenter RCT with adequate randomization (D1 low). Some concerns for D4 (measurement) due to open-label design, though endpoints adjudicated by blinded committee. Mixed comparator arm (FLX+W2.5) introduces partial indirectness.', highlights: ['randomization', 'open-label', 'blinded committee'] }
+                        { label: 'RoB Assessment', source: 'Study protocol: NCT03399851 (ClinicalTrials.gov)', text: 'Multicenter RCT with adequate randomization (D1 low). Some concerns for D4 (measurement) due to open-label design, though endpoints adjudicated by blinded committee. Mixed comparator arm (FLX+W2.5) introduces partial indirectness.', highlights: ['randomization', 'open-label', 'blinded committee'] }
                     ]
                 },
                 'NCT02702271': {
