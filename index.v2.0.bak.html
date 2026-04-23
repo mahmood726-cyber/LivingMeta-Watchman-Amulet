@@ -435,13 +435,13 @@
                 </div>
                 <div class="hidden glass p-6 rounded-b-2xl border border-t-0 border-slate-800">
                     <div class="manual-form-grid">
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">NCT ID / Study ID</label>
-                            <input id="manual-id" type="text" placeholder="e.g. NCT12345678" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Study Name</label>
-                            <input id="manual-name" type="text" placeholder="e.g. PINNACLE FLX" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Year</label>
-                            <input id="manual-year" type="number" placeholder="2024" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Comparator Group</label>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-id">NCT ID / Study ID</label>
+                            <input id="manual-id" type="text" aria-label="e.g. NCT12345678" placeholder="e.g. NCT12345678" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-name">Study Name</label>
+                            <input id="manual-name" type="text" aria-label="e.g. PINNACLE FLX" placeholder="e.g. PINNACLE FLX" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-year">Year</label>
+                            <input id="manual-year" type="number" aria-label="2024" placeholder="2024" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-group">Comparator Group</label>
                             <select id="manual-group" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm text-white">
                                 <option>Direct (vs FLX)</option>
                                 <option>Indirect (vs W2.5)</option>
@@ -449,14 +449,14 @@
                             </select></div>
                     </div>
                     <div class="grid grid-cols-4 gap-3 mt-4">
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Tx Events</label>
-                            <input id="manual-tE" type="number" min="0" placeholder="0" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Tx Total</label>
-                            <input id="manual-tN" type="number" min="1" placeholder="100" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Ctrl Events</label>
-                            <input id="manual-cE" type="number" min="0" placeholder="0" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
-                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1">Ctrl Total</label>
-                            <input id="manual-cN" type="number" min="1" placeholder="100" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-tE">Tx Events</label>
+                            <input id="manual-tE" type="number" min="0" aria-label="0" placeholder="0" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-tN">Tx Total</label>
+                            <input id="manual-tN" type="number" min="1" aria-label="100" placeholder="100" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-cE">Ctrl Events</label>
+                            <input id="manual-cE" type="number" min="0" aria-label="0" placeholder="0" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
+                        <div><label class="text-[10px] font-bold uppercase tracking-widest opacity-50 block mb-1" for="manual-cN">Ctrl Total</label>
+                            <input id="manual-cN" type="number" min="1" aria-label="100" placeholder="100" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-white"></div>
                     </div>
                     <div class="flex justify-end mt-4">
                         <button onclick="ExtractEngine.addManual()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-xl text-sm font-bold transition-all"><i class="fa-solid fa-check mr-2"></i>Add Study</button>
@@ -749,7 +749,7 @@
                     <div class="glass p-10 rounded-[40px] border border-slate-800">
                         <h3 class="text-sm font-bold opacity-40 uppercase tracking-[0.3em] mb-6">NNT/NNH Calculator</h3>
                         <div class="flex items-center gap-4 mb-4">
-                            <label class="text-xs font-bold uppercase opacity-50">Your patient's baseline risk:</label>
+                            <label class="text-xs font-bold uppercase opacity-50" for="nnt-baseline">Your patient's baseline risk:</label>
                             <input id="nnt-baseline" type="range" min="1" max="30" value="5" step="0.5" class="w-48" oninput="ReportEngine.updateNNT()">
                             <span id="nnt-baseline-label" class="font-mono text-blue-400 font-bold text-sm">5.0%</span>
                         </div>
